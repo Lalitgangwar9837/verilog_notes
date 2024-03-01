@@ -1,8 +1,7 @@
 // size no format <size>'<base formate> <number>   eg 4'b0000
 // if size is not present it considered as unsized no    eg 5 eg 'b010101 is unsize no but it have size 32 bit by default
 
-// Code your testbench here
-// or browse Examples
+
 module size_of_number ;
   // sized no
   integer a = 4'b1111; // this is 4 bit binary no 
@@ -21,6 +20,13 @@ module size_of_number ;
   integer j = 'bx; // this is 32 bit x
   integer k;
   
+  // negative no
+  integer l = -6'd3; // this is 32 bit negative no stored as 2's complemnt of 3
+  integer m = -6'sd3; //this is 32 bit negative no stored as 2's complemnt of 3 used for performing signed no
+  // integer n = 4'd-2; // it is illegal
+  integer o = 12'b1111_0000_1010; // this is 12 bit no _ use for readability
+  integer p=4'b10??; // ?? is conseder as zz
+  
   
   initial
     begin
@@ -35,9 +41,12 @@ module size_of_number ;
       $display("i in binay i = %b | decimal i = %d | octal i = %o | hexa i = %h",i,i,i,i);
       $display("j in binay j = %b | decimal j = %d | octal j = %o | hexa j = %h",j,j,j,j);
       $display("k in binay k = %b | decimal k = %d | octal k = %o | hexa k = %h",k,k,k,k);
+      $display("l in binay l = %b | decimal l = %d | octal l = %o | hexa l = %h",l,l,l,l);
+      $display("m in binay m = %b | decimal m = %d | octal m = %o | hexa m = %h",m,m,m,m);
+      $display("o in binay o = %b | decimal o = %d | octal o = %o | hexa o = %h",o,o,o,o);
+      $display("p in binay p = %b | decimal p = %d | octal p = %o | hexa p = %h",p,p,p,p);
     end
 endmodule
-
 
 
 ==============================================================================================
@@ -56,4 +65,8 @@ h in binay h = 00000000000000000000000000xxxxxx | decimal h =           X | octa
 i in binay i = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz | decimal i =           z | octal i = zzzzzzzzzzz | hexa i = zzzzzzzz
 j in binay j = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx | decimal j =           x | octal j = xxxxxxxxxxx | hexa j = xxxxxxxx
 k in binay k = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx | decimal k =           x | octal k = xxxxxxxxxxx | hexa k = xxxxxxxx
+l in binay l = 11111111111111111111111111111101 | decimal l =          -3 | octal l = 37777777775 | hexa l = fffffffd
+m in binay m = 11111111111111111111111111111101 | decimal m =          -3 | octal m = 37777777775 | hexa m = fffffffd
+o in binay o = 00000000000000000000111100001010 | decimal o =        3850 | octal o = 00000007412 | hexa o = 00000f0a
+p in binay p = 000000000000000000000000000010zz | decimal p =           Z | octal p = 0000000001Z | hexa p = 0000000Z
            V C S   S i m u l a t i o n   R e p o r t 
